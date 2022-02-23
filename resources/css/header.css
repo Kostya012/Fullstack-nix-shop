@@ -1,0 +1,171 @@
+@charset "utf-8";
+@font-face {
+  font-family: "Kelson Sans RU";
+  src: url("../fonts/Kelson Sans RU.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  background: linear-gradient(90deg, #faf0cd, #fab397);
+}
+
+header {
+  display: flex;
+  width: 100%;
+
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    hsla(34deg, 38%, 98%, 1) 25%,
+    hsla(34deg, 38%, 98%, 0) 75%
+  );
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Kelson Sans RU, Arial, Helvetica, sans-serif;
+  color: #141414;
+}
+
+.logo-nix {
+  display: flex;
+  padding-left: 20px;
+  overflow: hidden;
+  padding-top: 20px;
+  width: 320px;
+}
+
+.logo-nix img {
+  width: 140px;
+}
+
+.nav {
+  overflow: hidden;
+  width: calc(100% - 340px);
+}
+
+.navbar {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  animation-duration: 0.5s;
+  animation-name: x;
+}
+
+.blog-nav {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  animation-duration: 1s;
+  animation-name: a;
+}
+
+.navbar .blog-nav .blog-nav-item {
+  font-family: Kelson Sans RU, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 0 15px 5px;
+  text-decoration: none;
+}
+
+.navbar li a {
+  text-decoration: none;
+}
+
+.blog-nav-item:hover {
+  cursor: pointer;
+  background-color: #cce6fd;
+}
+
+.navbar>li>a.active {
+  color: #ddbe86;
+  background-color: #707070;
+}
+
+.article {
+  overflow: hidden;
+  line-height: 40px;
+  font-family: Kelson Sans RU, Arial, Helvetica, sans-serif;
+  padding: 30px 0;
+}
+
+.article h1 {
+  color: #7a7a7a;
+  padding-left: 10px;
+  font-size: 32px;
+  font-weight: bold;
+  font-style: italic;
+  animation-duration: 3s;
+  animation-name: slidein;
+  font-family: "Kelson Sans RU";
+}
+
+@keyframes a {
+  0% {
+    transform: translateY(300%);
+  }
+  50% {
+    transform: translateY(300%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes x {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateY(-180%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hicon-index {
+  background-image: url("../img/home1.svg");
+}
+
+.hicon-cart {
+  background-image: url("../img/cart.png");
+}
+
+.sign-in {
+  padding-top: 30px;
+}
+
+.sign-up {
+  padding-top: 25px;
+}
+
+.border-sign-up {
+  border: 2px solid black;
+  padding: 3px;
+}
+
+.hicon-index,
+.hicon-products,
+.hicon-cart,
+.hicon-product-details {
+  display: block;
+  background-repeat: no-repeat;
+  /* background-position-y: top; */
+  background-position-x: center;
+  background-size: 50px;
+  height: 50px;
+}
