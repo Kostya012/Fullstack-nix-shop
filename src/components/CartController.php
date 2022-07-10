@@ -1,15 +1,18 @@
 <?php
 
+namespace App\components;
+
 class CartController
 {
     public $data;
 
-    function __construct()
+    public function __construct()
     {
         $this->data = Db::getData('shopping-cart');
     }
 
-    protected function getSum() {
+    protected function getSum()
+    {
         $sum = 0;
         foreach ($this->data as $arr) {
             $sum += $arr['price'];
@@ -24,5 +27,4 @@ class CartController
         require_once(ROOT . '/resources/views/cart.php');
         return true;
     }
-
 }

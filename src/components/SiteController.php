@@ -1,10 +1,12 @@
 <?php
 
+namespace App\components;
+
 class SiteController
 {
     public $data;
 
-    function __construct()
+    public function __construct()
     {
         $this->data = Db::getData('main');
     }
@@ -15,5 +17,4 @@ class SiteController
         require_once(ROOT . '/resources/views/index.php');
         return true;
     }
-
 }

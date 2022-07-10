@@ -1,10 +1,13 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
+use App\components\SiteController;
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 define('ROOT', dirname(__FILE__));
-require_once 'vendor/autoload.php';
 
 //for header
 {
@@ -18,7 +21,7 @@ require_once 'vendor/autoload.php';
 require_once 'resources/views/layouts/header.php';
 require_once 'resources/views/layouts/aside.php';
 
-$index = new SiteController;
+$index = new SiteController();
 $index->actionIndex();
 
 require_once 'resources/views/layouts/footer.php';

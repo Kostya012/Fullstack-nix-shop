@@ -1,0 +1,19 @@
+{
+    "name": "kostiantyn/fullstack-nix-shop",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kostiantyn",
+            "email": "kostya120288@gmail.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "^3.5.5",
+        "friendsofphp/php-cs-fixer": "^3.8"
+    }
+}

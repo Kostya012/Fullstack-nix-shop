@@ -1,10 +1,12 @@
 <?php
 
+namespace App\components;
+
 class ProductsController
 {
     public $data;
 
-    function __construct()
+    public function __construct()
     {
         $this->data = Db::getData('product-list');
     }
@@ -15,5 +17,4 @@ class ProductsController
         require_once(ROOT . '/resources/views/products.php');
         return true;
     }
-
 }
