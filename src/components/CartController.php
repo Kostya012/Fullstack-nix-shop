@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Controller for Cart
+ */
+
+declare(strict_types=1);
+
 namespace App\components;
 
 class CartController
