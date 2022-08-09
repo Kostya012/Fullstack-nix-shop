@@ -37,6 +37,11 @@
 
 - мій пакет для логування: composer require kostya012/logger:dev-master
 
+### Task 5
+
+- Finish implementing Routing, Controller and View
+- Implement one of the approach of the Data Mapper, Active Record, or Row/Table Gateway
+
 ### Additional Information
 
 #### Validation HTML

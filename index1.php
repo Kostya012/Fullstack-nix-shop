@@ -1,31 +1,13 @@
 <?php
 
-// Front Controllers
+require_once 'vendor/autoload.php';
 
-// 1. Main settings
-// show errors
-ini_set('display_errors', 1);
+use App\components\SiteController;
+
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// 2. Connection files of systems
 define('ROOT', dirname(__FILE__));
-echo ROOT;
-require_once (ROOT.'/vendor/autoload.php');
-
-use Framework\Components\Router;
-
-// 3. Establishing a database connection
-
-// 4. Call Router
-
-$router = new Router();
-$router->run();
-
-
-
-
-
-
 
 //for header
 {
