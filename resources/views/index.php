@@ -11,7 +11,7 @@
             <?php endif; ?>
               <img
                 class="img-logo"
-                src="resources/img/home/<?= $item['img'];?>"
+                src="resources/img/products/<?= $item['img'];?>"
                 alt="<?= $item['name'];?>"
               />
             </div>
@@ -44,7 +44,7 @@
             <?php endif; ?>
               <img
                 class="img-logo"
-                src="resources/img/home/<?= $item['img'];?>"
+                src="resources/img/products/<?= $item['img'];?>"
                 alt="<?= $item['name'];?>"
               />
             </div>
@@ -77,7 +77,7 @@
             <?php endif; ?>
               <img
                 class="img-logo"
-                src="resources/img/home/<?= $item['img'];?>"
+                src="resources/img/products/<?= $item['img'];?>"
                 alt="<?= $item['name'];?>"
               />
             </div>

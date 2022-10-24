@@ -15,7 +15,7 @@ define('ROOT', dirname(__FILE__));
   $hiconCart = '';
   $hiconSignIn = '';
   $hiconSignUp = '';
-  $article = 'Products';
+  $article = 'Categories';
 }
 require_once 'resources/views/layouts/header.php';
 require_once 'resources/views/layouts/aside.php';

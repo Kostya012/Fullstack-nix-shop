@@ -141,6 +141,10 @@ h6 {
   background-image: url("../img/home1.svg");
 }
 
+.hicon-products {
+  background-image: url("../img/category.svg");
+}
+
 .hicon-cart {
   background-image: url("../img/cart.png");
 }

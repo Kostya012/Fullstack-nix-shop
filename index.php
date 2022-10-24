@@ -1,5 +1,4 @@
 <?php
-
 // Front Controllers
 
 // 1. Main settings
@@ -9,10 +8,12 @@ error_reporting(E_ALL);
 
 // 2. Connection files of systems
 define('ROOT', dirname(__FILE__));
-echo ROOT;
+//echo ROOT;
 require_once (ROOT.'/vendor/autoload.php');
 
 use Framework\Components\Router;
+
+require_once (ROOT.'/framework/Database/Db.php');
 
 // 3. Establishing a database connection
 
@@ -28,19 +29,19 @@ $router->run();
 
 
 //for header
-{
-  $hiconIndex = ' active';
-  $hiconCart = '';
-  $hiconSignIn = '';
-  $hiconSignUp = '';
-  $article = 'Home page';
-}
+//{
+//  $hiconIndex = ' active';
+//  $hiconCart = '';
+//  $hiconSignIn = '';
+//  $hiconSignUp = '';
+//  $article = 'Home page';
+//}
 
-require_once 'resources/views/layouts/header.php';
-require_once 'resources/views/layouts/aside.php';
+//require_once 'resources/views/layouts/header.php';
+//require_once 'resources/views/layouts/aside.php';
 
-$index = new SiteController();
-$index->actionIndex();
+//$index = new SiteController();
+//$index->actionIndex();
 
 require_once 'resources/views/layouts/footer.php';
 ?>

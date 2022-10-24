@@ -171,9 +171,20 @@ main {
 
 .img-logo {
   display: inline-block;
-  width: 98%;
+  max-width: 98%;
+  max-height: 200px;
   margin: 5px auto;
+  transition: 0.1s linear;
+  cursor: pointer;
 }
+
+.prod20:hover .img-logo {
+  /*max-height: 450px;*/
+  position: relative;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
 .img-logo-150 {
   display: inline-block;
   width: 150px;
