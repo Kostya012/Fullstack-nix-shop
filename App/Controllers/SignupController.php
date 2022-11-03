@@ -9,15 +9,15 @@
     $hiconIndex = '';
     $hiconProducts = '';
     $hiconCart = '';
-    $hiconSignIn = ' active';
-    $hiconSignUp = '';
-    $article = 'Sign in';
+    $hiconSignIn = '';
+    $hiconSignUp = ' active';
+    $article = 'Sign up';
 }
 
 require_once 'resources/views/layouts/header.php';
 require_once 'resources/views/layouts/aside.php';
 
-class LoginController
+class SignupController
 {
 //    public $data;
 
@@ -31,7 +31,7 @@ class LoginController
     {
         //$total = $this->getSum();
 //        $data = $this->data;
-        require_once(ROOT . '/resources/views/login.php');
+        require_once(ROOT . '/resources/views/signup.php');
         return true;
     }
 }

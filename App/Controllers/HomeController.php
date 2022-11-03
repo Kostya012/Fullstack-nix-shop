@@ -8,6 +8,7 @@ include_once ROOT. '/App/Models/Home.php';
 //for header
 {
     $hiconIndex = ' active';
+    $hiconProducts = '';
     $hiconCart = '';
     $hiconSignIn = '';
     $hiconSignUp = '';
@@ -29,30 +30,42 @@ class HomeController
     public function actionIndex()
     {
 //        $data = $this->data;
+        $data = array();
         $latestProducts = array();
         $latestProducts = Home::getLatestProducts();
 
-        echo '</br>actionIndex->getPromotionalOffers</br>';
-        echo '<pre>';
-        print_r($latestProducts);
-        echo '</pre>';
+//        echo '</br>actionIndex->getPromotionalOffers</br>';
+//        echo '<pre>';
+//        print_r($latestProducts);
+//        echo '</pre>';
+
+        $data['latestProducts'] = $latestProducts;
+
+//        echo '</br>actionIndex->getPromotionalOffers</br>';
+//        echo '<pre>';
+//        print_r($data);
+//        echo '</pre>';
 
         $promotionalOffers = array();
         $promotionalOffers = Home::getPromotionalOffers();
 
-        echo '</br>actionIndex->getPromotionalOffers</br>';
-        echo '<pre>';
-        print_r($promotionalOffers);
-        echo '</pre>';
+        $data['promotionalOffers'] = $promotionalOffers;
+
+//        echo '</br>actionIndex->getPromotionalOffers</br>';
+//        echo '<pre>';
+//        print_r($data);
+//        echo '</pre>';
 
         $recommendedProducts = array();
         $recommendedProducts = Home::getRecommendedProducts();
 
-        echo '</br>actionIndex->getRecommendedProducts</br>';
-        echo '<pre>';
-        print_r($recommendedProducts);
-        echo '</pre>';
-        $data = $recommendedProducts;
+        $data['recommendedProducts'] = $recommendedProducts;
+
+//        echo '</br>actionIndex->getRecommendedProducts</br>';
+//        echo '<pre>';
+//        print_r($data);
+//        echo '</pre>';
+//        $data = $recommendedProducts;
 
         require_once(ROOT . '/resources/views/index.php');
         return true;

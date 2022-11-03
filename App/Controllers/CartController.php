@@ -4,9 +4,26 @@
  * Controllers for Cart
  */
 
-declare(strict_types=1);
+//declare(strict_types=1);
+//
+//namespace App\Controllers;
 
-namespace App\Controllers;
+//include_once ROOT. '/App/Models/Home.php';
+
+include_once ROOT. '/App/Controllers/Dbold.php';
+//
+//for header
+{
+    $hiconIndex = '';
+    $hiconProducts = '';
+    $hiconCart = ' active';
+    $hiconSignIn = '';
+    $hiconSignUp = '';
+    $article = 'Shopping cart';
+}
+
+require_once 'resources/views/layouts/header.php';
+require_once 'resources/views/layouts/aside.php';
 
 class CartController
 {
@@ -14,7 +31,7 @@ class CartController
 
     public function __construct()
     {
-        $this->data = Db::getData('shopping-cart');
+        $this->data = Dbold::getData('shopping-cart');
     }
 
     protected function getSum()

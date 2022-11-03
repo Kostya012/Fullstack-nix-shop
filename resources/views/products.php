@@ -1,6 +1,7 @@
-<div class="gold">Category 1</div>
-<?php foreach ($data as $item): ?>
+<div class="gold"><?= ucfirst($data['article']);?></div>
+<?php foreach ($data['lists'] as $item): ?>
           <div class="prod30">
+              <a href="/products/<?= $item['category']; ?>/<?= $item['id']; ?>">
             <div class="wrapper-product">
             <?php if ($item['new']): ?>
               <div class="new"></div>
@@ -11,7 +12,7 @@
             <?php endif; ?>
               <img
                 class="img-logo"
-                src="resources/img/home/<?= $item['img'];?>"
+                src="/resources/img/products/<?= $item['img'];?>"
                 alt="<?= $item['name'];?>"
               />
             </div>
@@ -22,9 +23,10 @@
             <?php endif; ?>
             <p class="title-product"><?= $item['name'];?></p>
             <?php if ($item['quantity']): ?>
+              </a>
               <div class="add-to-cart">
                 <a href="#">
-                  <img class="cart" src="resources/img/cart.png" alt="" />
+                  <img class="cart" src="/resources/img/cart.png" alt="" />
                   Add to cart
                 </a>
               </div>

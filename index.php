@@ -12,8 +12,11 @@ define('ROOT', dirname(__FILE__));
 require_once (ROOT.'/vendor/autoload.php');
 
 use Framework\Components\Router;
+//use kostya012\Logger;
 
 require_once (ROOT.'/framework/Database/Db.php');
+
+
 
 // 3. Establishing a database connection
 
@@ -22,7 +25,9 @@ require_once (ROOT.'/framework/Database/Db.php');
 $router = new Router();
 $router->run();
 
-
+//$today = date("d_m_Y");
+//
+//$log = new Logger($today, 'log');
 
 
 

@@ -1,10 +1,10 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
+//
+//namespace App\Controllers;
 
-namespace App\Controllers;
-
-class Db
+class Dbold
 {
     public static function getData($nameFile)
     {

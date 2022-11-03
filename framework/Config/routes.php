@@ -1,8 +1,10 @@
 <?php
 return array(
-    'products/([a-z]+)/([0-9]+)' => 'products/view/$1/$2', // action$1 in ProductsController
-    'products/([a-z]+)' => 'products/$1', // action$1 in ProductsController
+    'cart' => 'cart/cart', // actionIndex in CartController
+    'products/([a-z]+)/([0-9]+)' => 'products/view/$1/$2', // actionView in ProductsController
+    'products/([a-z]+)' => 'products/products/$1', // actionProducts($1) in ProductsController
     'products' => 'products/index', // actionIndex in ProductsController
+    'categories' => 'products/index', // actionIndex in ProductsController
     'products-details' => 'products/details', // actionDetails in ProductsController
     'login' => 'login/index', // actionIndex in LoginController
     'signup' => 'signup/index', // actionIndex in SignupController

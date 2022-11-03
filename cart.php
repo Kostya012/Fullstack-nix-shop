@@ -12,6 +12,7 @@ define('ROOT', dirname(__FILE__));
 //for header
 {
   $hiconIndex = '';
+  $hiconProducts = '';
   $hiconCart = ' active';
   $hiconSignIn = '';
   $hiconSignUp = '';

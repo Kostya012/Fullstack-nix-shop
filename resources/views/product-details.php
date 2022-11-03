@@ -9,13 +9,14 @@
               <?php endif; ?>
             <?php endif; ?>
               <img
-                class="img-logo"
-                src="resources/img/home/<?= $data['img'];?>"
+                class="img-logo-details"
+                src="/resources/img/products/<?= $data['img'];?>"
                 alt="<?= $data['name'];?>"
               />
             </div>
           </div>
           <div class="prod50">
+              <div class="wrapper-product">
             <p class="title-product-details"><?= $data['name'];?></p>
             <p>Product code: <?= $data['id'];?></p>
             <?php if ($data['quantity']): ?>
@@ -41,18 +42,19 @@
             <?php if ($data['quantity']): ?>
               <div class="add-to-cart">
                 <a href="#">
-                  <img class="cart" src="resources/img/cart.png" alt="" />
+                  <img class="cart" src="/resources/img/cart.png" alt="" />
                   Add to cart
                 </a>
               </div>
             <?php endif; ?>
+              </div>
           </div>
           <div class="prod100">
             <div class="condition">
               <p class="condition-p">
                 <b class="bold">Product description:</b>
               </p>
-              <p class="condition-p"><?= $data['description'];?></p>
+              <p class="condition-p"><?= $data['describe'];?></p>
             </div>
           </div>
         </div>

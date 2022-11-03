@@ -15,7 +15,7 @@
   <body>
     <header>
       <div class="logo-nix">
-        <a href="https://www.nixsolutions.com/ru/" target="_blank">
+        <a href="https://www.nixsolutions.com/ua/" target="_blank">
           <img src="/resources/img/shop.png" alt="Nix-shop" />
           <img src="/resources/img/nix-logo-new.svg" alt="Nix" />
         </a>
@@ -23,32 +23,28 @@
       <div class="nav" id="slow_nav">
         <ul class="navbar">
           <li class="blog-nav">
-            <a class="blog-nav-item<?= $hiconIndex ?>" href="/index.php">
+            <a class="blog-nav-item<?= $hiconIndex ?>" href="/home">
               <div class="hicon-index"></div>
               Home page
             </a>
-            <a class="blog-nav-item" href="/products.php">
+            <a class="blog-nav-item<?= $hiconProducts ?>" href="/products">
               <div class="hicon-products"></div>
                 Categories
             </a>
-            <a class="blog-nav-item<?= $hiconCart ?>" href="/cart.php">
+            <a class="blog-nav-item<?= $hiconCart ?>" href="/cart">
               <div class="hicon-cart"></div>
               Shopping Cart
             </a>
-            <a class="blog-nav-item" href="/product-details.php">
-              <div class="hicon-product-details"></div>
-              Product details
-            </a>
           </li>
           <li class="blog-nav" id="reg">
-            <a class="blog-nav-item<?= $hiconSignIn ?>" id="signIn" href="/login.php">
+            <a class="blog-nav-item<?= $hiconSignIn ?>" id="signIn" href="/login">
               <div class="sign-in">
                 <div>Sign in</div>
               </div>
             </a>
-            <a class="blog-nav-item<?= $hiconSignUp ?>" id="signUp" href="/signup.php">
+            <a class="blog-nav-item<?= $hiconSignUp ?>" id="signUp" href="/signup">
               <div class="sign-up">
-                <div class="border-sign-up">Sign Up</div>
+                <div class="border-sign-up">Sign up</div>
               </div>
             </a>
           </li>

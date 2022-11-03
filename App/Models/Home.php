@@ -14,10 +14,16 @@ class Home
     {
         $db = Db::getConnection();
         $latestProducts = array();
-        $result = $db->query('SELECT id, name, price, sale, new, img, quantity, category '
-        . 'FROM products '
-        . 'ORDER BY id DESC '
-        . 'LIMIT 10');
+//        $result = $db->query('SELECT id, name, price, sale, new, img, quantity, category '
+//        . 'FROM products '
+//        . 'ORDER BY id DESC '
+//        . 'LIMIT 10');
+        // select name, price, sale, new, img, quantity from products right join home_latest_products on products.id = home_latest_products.id_products;
+        $result = $db->query('SELECT products.id as id, name, price, sale, new, img, quantity, category '
+            . 'FROM products '
+            . 'RIGHT JOIN home_latest_products '
+            . 'ON products.id = home_latest_products.id_products');
+//        $result = $db->query('SELECT id, name, price, sale, new, img, quantity, category FROM products RIGHT JOIN home_latest_products ON products.id = home_latest_products.id_products');
         $i = 0;
         while($row = $result->fetch()) {
             $latestProducts[$i]['id'] = $row['id'];
@@ -41,10 +47,14 @@ class Home
     {
         $db = Db::getConnection();
         $promotionalOffers = array();
-        $result = $db->query('SELECT id, name, price, sale, new, img, quantity, category '
+//        $result = $db->query('SELECT id, name, price, sale, new, img, quantity, category '
+//            . 'FROM products '
+//            . 'ORDER BY id DESC '
+//            . 'LIMIT 10');
+        $result = $db->query('SELECT products.id as id, name, price, sale, new, img, quantity, category '
             . 'FROM products '
-            . 'ORDER BY id DESC '
-            . 'LIMIT 10');
+            . 'RIGHT JOIN home_promotional_offers '
+            . 'ON products.id = home_promotional_offers.id_products');
         $i = 0;
         while($row = $result->fetch()) {
             $promotionalOffers[$i]['id'] = $row['id'];
@@ -68,10 +78,14 @@ class Home
     {
         $db = Db::getConnection();
         $recommendedProducts = array();
-        $result = $db->query('SELECT id, name, price, sale, new, img, quantity, category '
+//        $result = $db->query('SELECT id, name, price, sale, new, img, quantity, category '
+//            . 'FROM products '
+//            . 'ORDER BY id DESC '
+//            . 'LIMIT 10');
+        $result = $db->query('SELECT products.id as id, name, price, sale, new, img, quantity, category '
             . 'FROM products '
-            . 'ORDER BY id DESC '
-            . 'LIMIT 10');
+            . 'RIGHT JOIN home_recommended_products '
+            . 'ON products.id = home_recommended_products.id_products');
         $i = 0;
         while($row = $result->fetch()) {
             $recommendedProducts[$i]['id'] = $row['id'];
