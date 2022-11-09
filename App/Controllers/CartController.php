@@ -10,20 +10,22 @@
 
 //include_once ROOT. '/App/Models/Home.php';
 
+include_once ROOT . '/App/Models/Category.php';
+
 include_once ROOT. '/App/Controllers/Dbold.php';
 //
 //for header
 {
-    $hiconIndex = '';
-    $hiconProducts = '';
-    $hiconCart = ' active';
-    $hiconSignIn = '';
-    $hiconSignUp = '';
-    $article = 'Shopping cart';
+    $GLOBALS['hiconIndex'] = '';
+    $GLOBALS['hiconProducts'] = '';
+    $GLOBALS['hiconCart'] = ' active';
+    $GLOBALS['hiconSignIn'] = '';
+    $GLOBALS['hiconSignUp'] = '';
+    $GLOBALS['article'] = 'Shopping cart';
 }
 
-require_once 'resources/views/layouts/header.php';
-require_once 'resources/views/layouts/aside.php';
+//require_once 'resources/views/layouts/header.php';
+//require_once 'resources/views/layouts/aside.php';
 
 class CartController
 {
@@ -45,6 +47,16 @@ class CartController
 
     public function actionCart()
     {
+        global $hiconIndex;
+        global $hiconProducts;
+        global $hiconCart;
+        global $hiconSignIn;
+        global $hiconSignUp;
+        global $article;
+
+        $categories = array();
+        $categories = Category::getCategories();
+
         $total = $this->getSum();
         $data = $this->data;
         require_once(ROOT . '/resources/views/cart.php');

@@ -4,18 +4,20 @@
 //
 //namespace App\Controllers;
 
+include_once ROOT . '/App/Models/Category.php';
+
 //for header
 {
-    $hiconIndex = '';
-    $hiconProducts = '';
-    $hiconCart = '';
-    $hiconSignIn = ' active';
-    $hiconSignUp = '';
-    $article = 'Sign in';
+    $GLOBALS['hiconIndex'] = '';
+    $GLOBALS['hiconProducts'] = '';
+    $GLOBALS['hiconCart'] = '';
+    $GLOBALS['hiconSignIn'] = ' active';
+    $GLOBALS['hiconSignUp'] = '';
+    $GLOBALS['article'] = 'Sign in';
 }
 
-require_once 'resources/views/layouts/header.php';
-require_once 'resources/views/layouts/aside.php';
+//require_once 'resources/views/layouts/header.php';
+//require_once 'resources/views/layouts/aside.php';
 
 class LoginController
 {
@@ -29,6 +31,16 @@ class LoginController
 
     public function actionIndex()
     {
+        global $hiconIndex;
+        global $hiconProducts;
+        global $hiconCart;
+        global $hiconSignIn;
+        global $hiconSignUp;
+        global $article;
+
+        $categories = array();
+        $categories = Category::getCategories();
+
         //$total = $this->getSum();
 //        $data = $this->data;
         require_once(ROOT . '/resources/views/login.php');

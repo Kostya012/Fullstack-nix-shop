@@ -1,3 +1,5 @@
+<?php include ROOT.'/resources/views/layouts/header.php'; ?>
+<?php include ROOT.'/resources/views/layouts/aside.php'; ?>
 <div class="gold">Latest products</div>
 <?php foreach ($data['latestProducts'] as $item): ?>
     <div class="prod20">

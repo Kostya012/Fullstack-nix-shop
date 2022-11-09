@@ -3,20 +3,19 @@
 //declare(strict_types=1);
 //namespace App\Controllers;
 
-include_once ROOT. '/App/Models/Home.php';
+include_once ROOT . '/App/Models/Category.php';
+include_once ROOT . '/App/Models/Home.php';
 
 //for header
-{
-    $hiconIndex = ' active';
-    $hiconProducts = '';
-    $hiconCart = '';
-    $hiconSignIn = '';
-    $hiconSignUp = '';
-    $article = 'Home page';
-}
+$GLOBALS['hiconIndex'] = ' active';
+$GLOBALS['hiconProducts'] = '';
+$GLOBALS['hiconCart'] = '';
+$GLOBALS['hiconSignIn'] = '';
+$GLOBALS['hiconSignUp'] = '';
+$GLOBALS['article'] = 'Home page';
 
-require_once 'resources/views/layouts/header.php';
-require_once 'resources/views/layouts/aside.php';
+//require_once 'resources/views/layouts/header.php';
+//require_once 'resources/views/layouts/aside.php';
 
 class HomeController
 {
@@ -30,6 +29,16 @@ class HomeController
     public function actionIndex()
     {
 //        $data = $this->data;
+        global $hiconIndex;
+        global $hiconProducts;
+        global $hiconCart;
+        global $hiconSignIn;
+        global $hiconSignUp;
+        global $article;
+
+        $categories = array();
+        $categories = Category::getCategories();
+
         $data = array();
         $latestProducts = array();
         $latestProducts = Home::getLatestProducts();

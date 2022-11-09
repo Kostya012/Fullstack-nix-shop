@@ -1,19 +1,22 @@
 <?php
 
+include_once ROOT . '/App/Models/Category.php';
 include_once ROOT. '/App/Models/Products.php';
+include_once ROOT. '/App/Controllers/Pagination.php';
+//include_once ROOT. '/App/Controllers/Pagination2.php';
 
 //for header
 {
-    $hiconIndex = '';
-    $hiconProducts = ' active';
-    $hiconCart = '';
-    $hiconSignIn = '';
-    $hiconSignUp = '';
-    $article = 'Categories';
+    $GLOBALS['hiconIndex'] = '';
+    $GLOBALS['hiconProducts'] = ' active';
+    $GLOBALS['hiconCart'] = '';
+    $GLOBALS['hiconSignIn'] = '';
+    $GLOBALS['hiconSignUp'] = '';
+    $GLOBALS['article'] = 'Categories';
 }
 
-require_once 'resources/views/layouts/header.php';
-require_once 'resources/views/layouts/aside.php';
+//require_once 'resources/views/layouts/header.php';
+//require_once 'resources/views/layouts/aside.php';
 
 class ProductsController
 {
@@ -24,17 +27,39 @@ class ProductsController
 //        $this->data = Db::getData('product-list');
 //    }
 
-    public function actionProducts($category)
+    public function actionProducts($category, $current_page = 1)
     {
+//        echo '</br>actionProducts</br>';
+//        echo '</br>Category = ' . $category;
+//        echo '</br>Page = ' . $current_page;
+
 //        $data = $this->data;
-        $categoriesProducts = array();
-        $categoriesProducts = Products::getCategoriesProducts();
-        foreach ($categoriesProducts as $key => $value) {
+//        $data = $this->data;
+        //for header
+        global $hiconIndex;
+        global $hiconProducts;
+        global $hiconCart;
+        global $hiconSignIn;
+        global $hiconSignUp;
+
+        $categories = array();
+        $categories = Category::getCategories();
+
+        foreach ($categories as $key => $value) {
             if ($value['name'] == $category) {
+                //for header
+                $article = ucfirst($value['name']);
+
                 $products = array();
                 $products['article'] = $value['name'];
-                $products += Products::getCountProducts($value['id']);
-                $products['lists'] = Products::getProducts($value['id']);
+                $products['count'] = Products::getCountProducts($value['id']);
+                $total = $products['count'];
+
+//                echo '</br> alle seite = ' . $total;
+
+                $pagination = new Pagination($total, $current_page, Products::SHOW_BY_DEFAULT, '/page-');
+
+                $products['lists'] = Products::getProductsByCategory($value['id'], $current_page);
                 $data = $products;
 
 //                echo '<pre>';
@@ -51,15 +76,26 @@ class ProductsController
     public function actionIndex()
     {
 //        echo 'from action Index';
-        $categoriesProducts = array();
-        $categoriesProducts = Products::getCategoriesProducts();
+        //for header
+        global $hiconIndex;
+        global $hiconProducts;
+        global $hiconCart;
+        global $hiconSignIn;
+        global $hiconSignUp;
+        global $article;
+
+        $categories = array();
+        $categories = Category::getCategories();
+
+//        $categoriesProducts = array();
+//        $categoriesProducts = Products::getCategoriesProducts();
 //        echo '</br>actionIndex->getCategoriesProducts</br>';
 //        echo '<pre>';
 //        print_r($categoriesProducts);
 //        echo '</pre>';
 //        $data = $this->data;
 
-        $data = $categoriesProducts;
+        $data = $categories;
         require_once(ROOT . '/resources/views/categories.php');
         return true;
     }
@@ -80,10 +116,21 @@ class ProductsController
 //        echo '</br>' . 'Category: ' . $category;
 //        echo '</br>' . 'Id: ' . $id;
 
+        //for header
+        global $hiconIndex;
+        global $hiconProducts;
+        global $hiconCart;
+        global $hiconSignIn;
+        global $hiconSignUp;
+
+        $categories = array();
+        $categories = Category::getCategories();
+
         $productById = array();
         $productById = Products::getProductById($id);
 
 //        $data = $this->data;
+        $article = ucfirst($productById['category']);
         $data = $productById;
         require_once(ROOT . '/resources/views/product-details.php');
         return true;

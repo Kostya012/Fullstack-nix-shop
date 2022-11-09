@@ -84,7 +84,8 @@ h6 {
   background-color: #cce6fd;
 }
 
-.navbar>li>a.active {
+.navbar>li>a.active,
+.active {
   color: #ddbe86;
   background-color: #8d8d8d;
 }

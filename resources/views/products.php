@@ -1,3 +1,5 @@
+<?php include ROOT.'/resources/views/layouts/header.php'; ?>
+<?php include ROOT.'/resources/views/layouts/aside.php'; ?>
 <div class="gold"><?= ucfirst($data['article']);?></div>
 <?php foreach ($data['lists'] as $item): ?>
           <div class="prod30">
@@ -34,12 +36,7 @@
           </div>
           <?php endforeach; ?>
           <div class="pagination">
-            <ul class="pagination-ul">
-              <li class="pagination-active"><a href="">1</a></li>
-              <li><a href="">2</a></li>
-              <li><a href="">3</a></li>
-              <li><a href="">»</a></li>
-            </ul>
+              <?php echo $pagination->get(); ?>
           </div>
         </div>
       </main>

@@ -4,18 +4,20 @@
 //
 //namespace App\Controllers;
 
+include_once ROOT . '/App/Models/Category.php';
+
 //for header
 {
-    $hiconIndex = '';
-    $hiconProducts = '';
-    $hiconCart = '';
-    $hiconSignIn = '';
-    $hiconSignUp = ' active';
-    $article = 'Sign up';
+    $GLOBALS['hiconIndex'] = '';
+    $GLOBALS['hiconProducts'] = '';
+    $GLOBALS['hiconCart'] = '';
+    $GLOBALS['hiconSignIn'] = '';
+    $GLOBALS['hiconSignUp'] = ' active';
+    $GLOBALS['article'] = 'Sign up';
 }
 
-require_once 'resources/views/layouts/header.php';
-require_once 'resources/views/layouts/aside.php';
+//require_once 'resources/views/layouts/header.php';
+//require_once 'resources/views/layouts/aside.php';
 
 class SignupController
 {
@@ -31,6 +33,16 @@ class SignupController
     {
         //$total = $this->getSum();
 //        $data = $this->data;
+        global $hiconIndex;
+        global $hiconProducts;
+        global $hiconCart;
+        global $hiconSignIn;
+        global $hiconSignUp;
+        global $article;
+
+        $categories = array();
+        $categories = Category::getCategories();
+
         require_once(ROOT . '/resources/views/signup.php');
         return true;
     }

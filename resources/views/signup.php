@@ -1,3 +1,5 @@
+<?php include ROOT.'/resources/views/layouts/header.php'; ?>
+<?php include ROOT.'/resources/views/layouts/aside.php'; ?>
 <div class="gold">New User Signup</div>
           <div class="signup-form">
             <form class="form" action="#" method="post">

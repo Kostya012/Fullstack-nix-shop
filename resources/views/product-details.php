@@ -1,3 +1,5 @@
+<?php include ROOT.'/resources/views/layouts/header.php'; ?>
+<?php include ROOT.'/resources/views/layouts/aside.php'; ?>
 <div class="gold">Product details</div>
           <div class="prod50">
             <div class="wrapper-product">

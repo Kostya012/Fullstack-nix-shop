@@ -1,3 +1,5 @@
+<?php include ROOT.'/resources/views/layouts/header.php'; ?>
+<?php include ROOT.'/resources/views/layouts/aside.php'; ?>
 <div class="gold">Categories</div>
 <?php foreach ($data as $item): ?>
     <div class="prod20">
@@ -5,7 +7,7 @@
             <div class="wrapper-product">
                 <img
                         class="img-logo"
-                        src="resources/img/aside/<?= $item['name']; ?>.svg"
+                        src="/resources/img/aside/<?= $item['name']; ?>.svg"
                         alt="<?= $item['name']; ?>"
                 />
             </div>
