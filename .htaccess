@@ -1,3 +1,7 @@
+php_flag magic_qoutes_qpc Off
+AddDefaultCharset utf-8
+DirectoryIndex index.php
+
 RewriteEngine On
 RewriteBase /
 

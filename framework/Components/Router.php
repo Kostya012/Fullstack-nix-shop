@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Framework\Components;
 
+defined('VG_ACCESS') or die('Access denied');
+
 class Router
 {
     private $routes;

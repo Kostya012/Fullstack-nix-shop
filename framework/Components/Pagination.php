@@ -1,5 +1,9 @@
 <?php
 
+namespace Framework\Components;
+use массив;
+use число;
+
 /**
  *  class for generating pagination
  */

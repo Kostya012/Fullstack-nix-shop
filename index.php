@@ -2,6 +2,11 @@
 // Front Controllers
 
 // 1. Main settings
+// set security key
+define('VG_ACCESS', true);
+
+header('Content-Type:text/html;charset=utf-8');
+session_start();
 // show errors
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -10,6 +15,7 @@ error_reporting(E_ALL);
 define('ROOT', dirname(__FILE__));
 //echo ROOT;
 require_once (ROOT.'/vendor/autoload.php');
+//require_once (ROOT.'/framework/Components/Autoload.php');
 
 use Framework\Components\Router;
 //use kostya012\Logger;

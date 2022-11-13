@@ -5,6 +5,7 @@
 
 include_once ROOT . '/App/Models/Category.php';
 include_once ROOT . '/App/Models/Home.php';
+include_once ROOT . '/App/Models/User.php';
 
 //for header
 $GLOBALS['hiconIndex'] = ' active';
@@ -12,6 +13,7 @@ $GLOBALS['hiconProducts'] = '';
 $GLOBALS['hiconCart'] = '';
 $GLOBALS['hiconSignIn'] = '';
 $GLOBALS['hiconSignUp'] = '';
+$GLOBALS['hiconUser'] = '';
 $GLOBALS['article'] = 'Home page';
 
 //require_once 'resources/views/layouts/header.php';
@@ -34,6 +36,7 @@ class HomeController
         global $hiconCart;
         global $hiconSignIn;
         global $hiconSignUp;
+        global $hiconUser;
         global $article;
 
         $categories = array();

@@ -1,10 +1,10 @@
 <?php include ROOT . '/resources/views/layouts/header.php'; ?>
 <?php include ROOT . '/resources/views/layouts/aside.php'; ?>
-<div class="gold">New User Signup</div>
+<div class="gold">Account editing</div>
 
 <?php if ($result): ?>
     <div class="signup-form">
-        <p class="title-product-details">Congratulations, you are registered!</p>
+        <p class="title-product-details">Congratulations, new data saved!</p>
     </div>
 <?php else: ?>
 
@@ -18,20 +18,16 @@
         </div>
     <?php endif; ?>
     <div class="signup-form">
-        <form class="form" action="#" method="post">
+        <form class="form" action="" method="post">
             <div class="form-group">
                 <label for="name">Your name</label>
                 <input type="text" name="name" id="name" placeholder="Name" value="<?= $name; ?>"/>
             </div>
             <div class="form-group">
-                <label for="email">Your Email</label>
-                <input type="email" name="email" id="email" placeholder="Email Address" value="<?= $email; ?>"/>
-            </div>
-            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Password" value="<?= $password; ?>"/>
             </div>
-            <button type="submit" name="submit" class="btn btn-default">Signup</button>
+            <button type="submit" name="submit" class="btn btn-default">Save</button>
         </form>
     </div>
 <?php endif; ?>

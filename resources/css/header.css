@@ -150,6 +150,10 @@ h6 {
   background-image: url("../img/cart.png");
 }
 
+.hicon-user {
+  background-image: url("../img/user.svg");
+}
+
 .sign-in {
   padding-top: 30px;
 }
@@ -166,7 +170,7 @@ h6 {
 .hicon-index,
 .hicon-products,
 .hicon-cart,
-.hicon-product-details {
+.hicon-user {
   display: block;
   background-repeat: no-repeat;
   /* background-position-y: top; */

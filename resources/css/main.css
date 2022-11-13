@@ -306,6 +306,20 @@ tr td:nth-child(1) {
 
 /* FORM */
 
+.error {
+  display: inline-block;
+  text-align: left;
+  max-width: 500px;
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+
+.error li {
+  padding: 10px;
+  background-color: #fab397;
+  border-bottom-color: #ffffff;
+}
+
 form {
   padding: 15px;
   border-right: 2px solid #292828;
@@ -440,7 +454,7 @@ footer {
   .hicon-index,
   .hicon-products,
   .hicon-cart,
-  .hicon-product-details {
+  .hicon-user {
     background-size: 30px;
     height: 30px;
   }
@@ -473,7 +487,7 @@ footer {
   .hicon-index,
   .hicon-products,
   .hicon-cart,
-  .hicon-product-details {
+  .hicon-user {
     background-size: 30px;
     height: 30px;
   }
@@ -521,7 +535,7 @@ footer {
   .hicon-index,
   .hicon-products,
   .hicon-cart,
-  .hicon-product-details {
+  .hicon-user {
     background-size: 30px;
     height: 30px;
   }
@@ -573,7 +587,7 @@ footer {
   .hicon-index,
   .hicon-products,
   .hicon-cart,
-  .hicon-product-details {
+  .hicon-user {
     background-size: 30px;
     height: 30px;
   }

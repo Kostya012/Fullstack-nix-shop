@@ -37,6 +37,7 @@
             </a>
           </li>
           <li class="blog-nav" id="reg">
+              <?php if(User::isGuest()): ?>
             <a class="blog-nav-item<?= $hiconSignIn ?>" id="signIn" href="/login">
               <div class="sign-in">
                 <div>Sign in</div>
@@ -47,6 +48,17 @@
                 <div class="border-sign-up">Sign up</div>
               </div>
             </a>
+              <?php else: ?>
+              <a class="blog-nav-item<?= $hiconUser ?>" id="user" href="/cabinet">
+                  <div class="hicon-user"></div>
+                  User account
+              </a>
+              <a class="blog-nav-item" id="logout" href="/logout">
+                  <div class="sign-in">
+                      <div>Logout</div>
+                  </div>
+              </a>
+              <?php endif; ?>
           </li>
         </ul>
         <div class="article">

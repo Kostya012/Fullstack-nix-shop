@@ -11,6 +11,7 @@
 //include_once ROOT. '/App/Models/Home.php';
 
 include_once ROOT . '/App/Models/Category.php';
+include_once ROOT . '/App/Models/User.php';
 
 include_once ROOT. '/App/Controllers/Dbold.php';
 //
@@ -21,6 +22,7 @@ include_once ROOT. '/App/Controllers/Dbold.php';
     $GLOBALS['hiconCart'] = ' active';
     $GLOBALS['hiconSignIn'] = '';
     $GLOBALS['hiconSignUp'] = '';
+    $GLOBALS['hiconUser'] = '';
     $GLOBALS['article'] = 'Shopping cart';
 }
 
@@ -52,6 +54,7 @@ class CartController
         global $hiconCart;
         global $hiconSignIn;
         global $hiconSignUp;
+        global $hiconUser;
         global $article;
 
         $categories = array();

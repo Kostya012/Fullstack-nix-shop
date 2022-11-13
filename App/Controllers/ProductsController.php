@@ -1,9 +1,11 @@
 <?php
 
+use Framework\Components\Pagination;
+
 include_once ROOT . '/App/Models/Category.php';
-include_once ROOT. '/App/Models/Products.php';
-include_once ROOT. '/App/Controllers/Pagination.php';
-//include_once ROOT. '/App/Controllers/Pagination2.php';
+include_once ROOT . '/App/Models/Products.php';
+include_once ROOT . '/framework/Components/Pagination.php';
+include_once ROOT . '/App/Models/User.php';
 
 //for header
 {
@@ -12,6 +14,7 @@ include_once ROOT. '/App/Controllers/Pagination.php';
     $GLOBALS['hiconCart'] = '';
     $GLOBALS['hiconSignIn'] = '';
     $GLOBALS['hiconSignUp'] = '';
+    $GLOBALS['hiconUser'] = '';
     $GLOBALS['article'] = 'Categories';
 }
 
@@ -41,6 +44,7 @@ class ProductsController
         global $hiconCart;
         global $hiconSignIn;
         global $hiconSignUp;
+        global $hiconUser;
 
         $categories = array();
         $categories = Category::getCategories();
