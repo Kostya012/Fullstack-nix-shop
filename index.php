@@ -7,6 +7,7 @@ define('VG_ACCESS', true);
 
 header('Content-Type:text/html;charset=utf-8');
 session_start();
+
 // show errors
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -14,45 +15,30 @@ error_reporting(E_ALL);
 // 2. Connection files of systems
 define('ROOT', dirname(__FILE__));
 //echo ROOT;
-require_once (ROOT.'/vendor/autoload.php');
-//require_once (ROOT.'/framework/Components/Autoload.php');
+//require_once(ROOT.'/vendor/autoload.php');
+//require_once(ROOT.'/framework/Components/Autoload.php');
+require_once(ROOT . '/framework/Config/internal_settings.php');
 
-use Framework\Components\Router;
+use framework\Components\Router;
+use framework\Config\exceptions\RouteException;
+
 //use kostya012\Logger;
 
-require_once (ROOT.'/framework/Database/Db.php');
+require_once(ROOT . '/framework/Database/Db.php');
 
+try {
+    // 3. Establishing a database connection
 
+    // 4. Call Router
 
-// 3. Establishing a database connection
+    $router = new Router();
+    $router->run();
 
-// 4. Call Router
+    //$today = date("d_m_Y");
 
-$router = new Router();
-$router->run();
+    //$log = new Logger($today, 'log');
 
-//$today = date("d_m_Y");
-//
-//$log = new Logger($today, 'log');
-
-
-
-
-
-//for header
-//{
-//  $hiconIndex = ' active';
-//  $hiconCart = '';
-//  $hiconSignIn = '';
-//  $hiconSignUp = '';
-//  $article = 'Home page';
-//}
-
-//require_once 'resources/views/layouts/header.php';
-//require_once 'resources/views/layouts/aside.php';
-
-//$index = new SiteController();
-//$index->actionIndex();
-
-require_once 'resources/views/layouts/footer.php';
-?>
+    require_once 'resources/views/layouts/footer.php';
+} catch (RouteException $e) {
+    exit($e->getMessage());
+}

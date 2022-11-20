@@ -2,18 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Framework\Components;
+namespace framework\Components;
 
 defined('VG_ACCESS') or die('Access denied');
 
+use framework\Config\exceptions\RouteException;
+
 class Router
 {
-    private $routes;
-    private $countRoutes;
+    // connection trait;
+    use BaseMethods;
+
+//    use Singleton;
+
+    private array $routes;
+    private int $countRoutes;
 
     public function __construct()
     {
-        $routesPath = ROOT.'/framework/Config/routes.php';
+        $routesPath = ROOT . '/framework/Config/routes.php';
         $this->routes = include($routesPath);
         $this->countRoutes = count($this->routes);
     }
@@ -22,7 +29,7 @@ class Router
      * Returns request string
      * @return string
      */
-    private function getUri():string
+    private function getUri(): string
     {
         if (!empty($_SERVER['REQUEST_URI'])) {
             return trim($_SERVER['REQUEST_URI'], '/');
@@ -30,7 +37,10 @@ class Router
         return '';
     }
 
-    public function run()
+    /**
+     * @throws RouteException
+     */
+    public function run(): void
     {
         // получити строку запроса
         $uri = $this->getUri();
@@ -83,26 +93,38 @@ class Router
 //                    echo '<br/>';
 //                    echo 'файл підключено: ' . $controllerFile;
                 } else {
+                    $this->writeLog("File Controller not $controllerFile");
+                    throw new RouteException('File Controller not exist' . $controllerFile, 1);
 //                    echo '<br/>';
 //                    echo 'файл контролер not';
                 }
 
-                // створити об'єкт, визвати метод (тобто action)
-                $controllerObject = new $controllerName;
+                if (method_exists($controllerName, $actionName)) {
+                    // створити об'єкт, визвати метод (тобто action)
+                    $controllerObject = new $controllerName();
 
 //                $result = $controllerObject->$actionName($parameters);
-                $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
+                    $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 
-                if ($result != null) {
-                    break;
+                    if ($result != null) {
+                        break;
+                    } else {
+                        $this->writeLog("File Controller return false: $controllerFile");
+                        throw new RouteException('File Controller return false: ' . $controllerFile, 0);
+//                        echo '<br/>';
+//                        echo 'File Controller return false:';
+                    }
                 } else {
-                    echo '<br/>';
-                    echo 'файл контролер not';
+                    $this->writeLog("Entries a non-existent page: $controllerFile");
+//                    echo '<br/>';
+//                    echo 'action have not: ';
                 }
             }
 
             // якщо останній роутс не підходить, то показуєм домашню сторінку
-            if ($this->countRoutes == $count) {
+            if ($this->countRoutes <= $count) {
+                $this->writeLog("Entries a non-existent page or not correct page");
+//                throw new RouteException('File Controller not' . $controllerFile, 0);
 //                echo '<br/>якщо останній роутс не підходить, то показуєм домашню сторінку';
                 $controllerName = 'HomeController';
                 $actionName = 'actionIndex';
@@ -121,20 +143,20 @@ class Router
 //                    echo '<br/>';
 //                    echo 'файл підключено: ' . $controllerFile;
                 } else {
-                    echo '<br/>';
-                    echo 'файл контролер not';
+                    throw new RouteException('File Controller not exist' . $controllerFile, 1);
+//                    echo '<br/>';
+//                    echo 'файл контролер not';
                 }
 
                 // створити об'єкт, визвати метод (тобто action)
-                $controllerObject = new $controllerName;
+                $controllerObject = new $controllerName();
 
                 $result = $controllerObject->$actionName();
 
                 if ($result != null) {
                     break;
                 } else {
-                    echo '<br/>';
-                    echo 'файл контролер not';
+                    throw new RouteException('Action indexAction return false from HomeController', 1);
                 }
             }
         }
