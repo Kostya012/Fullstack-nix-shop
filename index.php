@@ -1,6 +1,7 @@
 <?php
-// Front Controllers
 
+// Front Controllers
+//phpinfo();
 // 1. Main settings
 // set security key
 define('VG_ACCESS', true);
@@ -9,8 +10,8 @@ header('Content-Type:text/html;charset=utf-8');
 session_start();
 
 // show errors
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 
 // 2. Connection files of systems
 define('ROOT', dirname(__FILE__));
@@ -20,6 +21,7 @@ define('ROOT', dirname(__FILE__));
 require_once(ROOT . '/framework/Config/internal_settings.php');
 
 use framework\Components\Router;
+use framework\Config\exceptions\DbException;
 use framework\Config\exceptions\RouteException;
 
 //use kostya012\Logger;
@@ -39,6 +41,6 @@ try {
     //$log = new Logger($today, 'log');
 
     require_once 'resources/views/layouts/footer.php';
-} catch (RouteException $e) {
+} catch (RouteException | DbException $e) {
     exit($e->getMessage());
 }

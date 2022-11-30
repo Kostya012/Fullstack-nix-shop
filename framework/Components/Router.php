@@ -93,8 +93,8 @@ class Router
 //                    echo '<br/>';
 //                    echo 'файл підключено: ' . $controllerFile;
                 } else {
-                    $this->writeLog("File Controller not $controllerFile");
-                    throw new RouteException('File Controller not exist' . $controllerFile, 1);
+//                    $this->writeLog("File Controller not exist  $controllerFile");
+                    throw new RouteException('File Controller not exist: ' . $controllerFile, 1);
 //                    echo '<br/>';
 //                    echo 'файл контролер not';
                 }
@@ -123,8 +123,8 @@ class Router
 
             // якщо останній роутс не підходить, то показуєм домашню сторінку
             if ($this->countRoutes <= $count) {
-                $this->writeLog("Entries a non-existent page or not correct page");
-//                throw new RouteException('File Controller not' . $controllerFile, 0);
+//                $this->writeLog("Entries a non-existent page or not correct page");
+                throw new RouteException('Entries a non-existent page or not correct page: ' . $uri, 0);
 //                echo '<br/>якщо останній роутс не підходить, то показуєм домашню сторінку';
                 $controllerName = 'HomeController';
                 $actionName = 'actionIndex';
@@ -143,7 +143,7 @@ class Router
 //                    echo '<br/>';
 //                    echo 'файл підключено: ' . $controllerFile;
                 } else {
-                    throw new RouteException('File Controller not exist' . $controllerFile, 1);
+                    throw new RouteException('File Controller not exist: ' . $controllerFile, 1);
 //                    echo '<br/>';
 //                    echo 'файл контролер not';
                 }

@@ -1,0 +1,16 @@
+Fault: 29-11-2022 12:41:50 - Error connection to Db: 0 
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 23
+
+Fault: 29-11-2022 22:31:19 - Error connection to Db: 1044 Access denied for user 'shevtsov'@'localhost' to database 'shevtsov_db1'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 32
+
+Fault: 29-11-2022 22:34:49 - Error connection to Db: 1044 Access denied for user 'shevtsov'@'localhost' to database 'shevtsov_db1'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 32
+
+Fault: 29-11-2022 22:37:05 - Error connection to Db: 1044 Access denied for user 'shevtsov'@'localhost' to database 'shevtsov_db1'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 33
+

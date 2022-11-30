@@ -15,5 +15,6 @@ return array(
     'cabinet/([a-z]+)' => 'cabinet/$1', // action$1 in CabinetController
     'cabinet' => 'cabinet/index', // actionIndex in CabinetController
     'logout' => 'cabinet/logout', // actionLogout in CabinetController
+    'admin' => 'admin/index', // actionIndex in AdminController
     'home' => 'home/index', // actionIndex in HomeController
 );
