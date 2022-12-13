@@ -10,8 +10,8 @@ header('Content-Type:text/html;charset=utf-8');
 session_start();
 
 // show errors
-//ini_set('display_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 // 2. Connection files of systems
 define('ROOT', dirname(__FILE__));

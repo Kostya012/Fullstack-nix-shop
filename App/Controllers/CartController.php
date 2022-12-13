@@ -8,7 +8,7 @@
 //
 //namespace App\Controllers;
 
-//include_once ROOT. '/App/Models/Home.php';
+//include_once ROOT. '/App/model/Home.php';
 
 include_once ROOT . '/App/Models/Category.php';
 include_once ROOT . '/App/Models/User.php';

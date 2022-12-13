@@ -5,7 +5,7 @@ function __autoload($class_name)
     $array_paths = array(
         '/framework/Components/',
         '/framework/Database/',
-        '/App/Models/',
+        '/App/model/',
     );
 
     foreach ($array_paths as $path) {

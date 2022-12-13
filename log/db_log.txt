@@ -14,3 +14,31 @@ Fault: 29-11-2022 22:37:05 - Error connection to Db: 1044 Access denied for user
 file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
 in line 33
 
+Fault: 30-11-2022 22:42:34 - Error in SQL request: SELECT * FROM users1 - 1146 Table 'shevtsov_db.users1' doesn't exist
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 49
+
+Fault: 30-11-2022 22:45:47 - Error in SQL request: SELECT name1 FROM users - 1054 Unknown column 'name1' in 'field list'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 49
+
+Fault: 13-12-2022 0:47:09 - Error in SQL request: SELECT products.id, products.name FROM products  WHERE products.color IN ('red', 'blue', 'yellow')  ORDER BY products.new ASC, products.id_category DESC LIMIT 1 - 1054 Unknown column 'products.color' in 'where clause'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 49
+
+Fault: 13-12-2022 0:47:12 - Error in SQL request: SELECT products.id, products.name FROM products  WHERE products.color IN ('red', 'blue', 'yellow')  ORDER BY products.new ASC, products.id_category DESC LIMIT 1 - 1054 Unknown column 'products.color' in 'where clause'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 49
+
+Fault: 13-12-2022 21:42:36 - Error in SQL request: SELECT products.id_category, products.name_category FROM products  WHERE products.status  =  '1'  AND  products.id_category  =  '1'   LIMIT 1 - 1054 Unknown column 'products.name_category' in 'field list'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 49
+
+Fault: 13-12-2022 21:42:38 - Error in SQL request: SELECT products.id_category, products.name_category FROM products  WHERE products.status  =  '1'  AND  products.id_category  =  '1'   LIMIT 1 - 1054 Unknown column 'products.name_category' in 'field list'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 49
+
+Fault: 13-12-2022 21:42:52 - Error in SQL request: SELECT products.id_category, products.name_category FROM products  WHERE products.status  =  '1'  AND  products.id_category  =  '1'   LIMIT 1 - 1054 Unknown column 'products.name_category' in 'field list'
+file /home/kostiantyn/Projects/github/kostya012/Fullstack-nix-shop/framework/Model/BaseModel.php
+in line 49
+
