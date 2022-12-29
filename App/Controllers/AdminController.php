@@ -110,12 +110,75 @@ class AdminController
 
 //        $res = $db->query($query);
 
-        $res = $db->get($table, set: [
-            'fields' => ['id_category', 'name_category'],
-            'where' => ['status' => "1", 'id_category' => 1],
-            'limit' => '1'
-        ])[0];
+//        $res = $db->get($table, set: [
+//            'fields' => ['id_category', 'name_category'],
+//            'where' => ['status' => "1", 'id_category' => 1],
+//            'limit' => '1'
+//        ])[0];
 
+        $table = 'cars';
+//        $files['description'] = ["new_red.jpg", 'blue.jpg', 'black.jpg'];
+//        $files['color'] = 'black';
+//        $res = $db->add($table, set: [
+////            'fields' => ['description' => 'Ford', 'title' => 'Mers', 'color' => 'green', 'type' => 'passenger', 'price' => 1200, 'updated_at' => '2022.12.26'],
+//        ]);
+
+//        $res = $db->showColumns($table);
+
+        $files['description'] = ["new_red.jpg"];
+        $files['color'] = 'white';
+
+//        $res = $db->edit($table, [
+//            'fields' => ['id' => 2, 'type' => 'passenger'],
+//            'where' => ['id' => 1],
+//            'files' => $files
+//        ]);
+
+//        $_POST['id'] = 3;
+//        $_POST['title'] = 'Mazda';
+//        $_POST['description'] = "<p>New' car</p>";
+
+//        $query1 = "DELETE FROM cars WHERE id = 1";
+
+//        $query2 = "DELETE category, products FROM cars
+//                   LEFT JOIN products ON category.id = products.parent_id
+//                   WHERE id = 1";
+
+//        $res = $db->edit($table);
+
+//        $res = $db->delete($table, [
+//            'fields' => ['id', 'price'],
+//            'where' => ['id' => 7]
+//        ]);
+//        $res = $db->edit($table, [
+//            'fields' => ['price' => 1500],
+//            'where' => ['id' => 7]
+//        ]);
+
+//        for ($i = 0; $i < 8; $i++) {
+//            $s_id = $db->add('car', [
+//                'fields' => ['title' => 'Auto-' . $i, 'description' => 'desc-' . $i],
+//                'return_id' => true
+//            ]);
+//
+//            $db->add('categories', [
+//                'fields' => ['name_category' => 'Auto-' . $i, 'sort' => 'desc-' . $i]
+//            ]);
+//        }
+//        for ($i = 0; $i < 8; $i++) {
+//            $s_id = $db->add('cars', [
+//                'fields' => [
+//                    'title' => 'Auto-' . $i,
+//                    'description' => 'desc-' . $i,
+//                    'type' => 'passenger',
+//                    'color' => 'white',
+//                    'price' => $i + 1500
+//                ]
+//            ]);
+//        }
+        $res = $db->delete($table, [
+            'where' => ['id' => 8]
+        ]);
 //        echo '<pre>';
 //        print_r($db);
 //        echo '</pre>';

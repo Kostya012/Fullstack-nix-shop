@@ -4,6 +4,8 @@ namespace framework\Model;
 
 abstract class BaseModelMethods
 {
+    protected $sqlFunc = ['NOW()'];
+
     /**
      * @param array $set
      * @param mixed $table
@@ -127,6 +129,7 @@ abstract class BaseModelMethods
         $fields = '';
         $join = '';
         $where = '';
+        $tables = '';
 
         if ($set['join']) {
             $join_table = $table;
@@ -190,6 +193,7 @@ abstract class BaseModelMethods
                     // konkoteniruem 2 table
                     $join .= '.' . $join_fields[0] . ' = ' . $key . '.' . $join_fields[1];
                     $join_table = $key;
+                    $tables .= ', ' . trim($join_table);
 
                     if ($new_where) {
                         if ($item['where']) {
@@ -205,7 +209,8 @@ abstract class BaseModelMethods
                 }
             }
         }
-        return compact('fields', 'join', 'where');
+        // compact() return ['fields' => 'string', 'join' => 'string', 'where' => 'string', 'tables' => 'string']
+        return compact('fields', 'join', 'where', 'tables');
     }
 
     /**
@@ -244,15 +249,81 @@ abstract class BaseModelMethods
         return $order_by;
     }
 
-    protected function createInsert(mixed $fields, mixed $files, mixed $except): mixed
+    /**
+     * @param array $fields
+     * @param mixed $files
+     * @param mixed $except
+     * @return array
+     */
+    protected function createInsert(array $fields, mixed $files, mixed $except): array
     {
-        if (!$fields) {
-            $fields = $_POST;
-        }
+        $insert_arr = [];
 
         if ($fields) {
-            $sql_func = ['NOW()'];
+            foreach ($fields as $row => $value) {
+                if ($except && in_array($row, $except)) {
+                    continue;
+                }
+                $insert_arr['fields'] .= $row . ', ';
+                if (in_array($value, $this->sqlFunc)) {
+                    $insert_arr['values'] .= $value . ', ';
+                } else {
+                    $insert_arr['values'] .= "'" . addslashes($value) . "', ";
+                }
+            }
         }
-        return false;
+        if ($files) {
+            foreach ($files as $row => $file) {
+                $insert_arr['fields'] .= $row . ', ';
+                if (is_array($file)) {
+                    $insert_arr['values'] .= "'" . addslashes(json_encode($file)) . "', ";
+                } else {
+                    $insert_arr['values'] .= "'" . addslashes($file) . "', ";
+                }
+            }
+        }
+        foreach ($insert_arr as $key => $arr) {
+            $insert_arr[$key] = rtrim($arr, ', ');
+        }
+        return $insert_arr;
+    }
+
+    /**
+     * @param mixed $fields
+     * @param mixed $files
+     * @param mixed $except
+     * @return string
+     */
+    protected function createUpdate(mixed $fields, mixed $files = false, mixed $except = false): string
+    {
+        $update = '';
+
+        if ($fields) {
+            foreach ($fields as $row => $value) {
+                if ($except && in_array($row, $except)) {
+                    continue;
+                }
+                $update .= $row . ' = ';
+
+                if (in_array($value, $this->sqlFunc)) {
+                    $update .= $value . ', ';
+                } elseif ($value === null) {
+                    $update .= "NULL" . ', ';
+                } else {
+                    $update .= "'" . addslashes($value) . "', ";
+                }
+            }
+        }
+        if ($files) {
+            foreach ($files as $row => $file) {
+                $update .= $row . ' = ';
+                if (is_array($file)) {
+                    $update .= "'" . addslashes(json_encode($file)) . "', ";
+                } else {
+                    $update .= "'" . addslashes($file) . "', ";
+                }
+            }
+        }
+        return rtrim($update, ', ');
     }
 }
